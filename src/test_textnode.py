@@ -59,5 +59,6 @@ class TestTextNode(unittest.TestCase):
         node2 = TextNode(None, None, None)
         self.assertFalse(node1 == node2)
 
+
 if __name__ == "__main__":
     unittest.main()

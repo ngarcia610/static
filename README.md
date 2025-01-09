@@ -1,27 +1,25 @@
-# Static Site Generator from Boot.Dev
+## [Static Site Generator](https://www.boot.dev/learn/build-static-site-generator)
 
-## The flow of data through the full system is:
+Ever wondered how static site generators work?
 
-1. Markdown files are in the `/content` directory. A `template.html` file is in the root of the project.
-2. The static site generator (the Python code in `src/`) reads the Markdown files and the template file.
-3. The generator converts the Markdown files to a final HTML file for each page and writes them to the `/public` directory.
-4. We start the built-in Python HTTP server (a separate program, unrelated to the generator) to serve the contents of the `/public` directory on `http://localhost:8888` (our local machine).
-5. We open a browser and navigate to `http://localhost:8888` to view the rendered site.
+A static site generator takes raw content files (like Markdown and images) and turns them into a static website of HTML and CSS files. Static sites are quite popular for blogs and other content-heavy websites because they're lightning-fast, secure, and easy to host.
 
-## How the SSG works
+A static site is what it sounds like... **static**. No matter who is interacting with the site, the content is always the same.
 
-The vast majority of our coding will happen in the `src/` directory because almost all of the work is done in steps 2 and 3 above. Here's a rough outline of what the final program will do when it runs:
+<br>
 
-1. Delete everything in the `/public` directory.
-2. Copy any static assets (HTML template, images, CSS, etc.) to the `/public` directory.
-3. Generate an HTML file for each Markdown file in the `/content` directory.
+Some popular production-ready static site generators include:
+- Hugo
+- Astro
+- Eleventy
+- Gatsby
+- Jekyll
 
-For each Markdown file:
+<br>
 
-    1. Open the file and read its contents.
-    2. Split the markdown into "blocks" (e.g. paragraphs, headings, lists, etc.).
-    3. Convert each block into a tree of `HTMLNode` objects. 
-    4. For inline elements (like bold text, links, etc.) we will convert: Raw markdown -> `TextNode` -> `HTMLNode`
-    5. Join all the `HTMLNode` blocks under one large parent `HTMLNode` for the pages.
-    6. Use a recursive `to_html()` method to convert the `HTMLNode` and all its nested nodes to a giant HTML string and inject it in the HTML template.
-    7. Write the full HTML string to a file for that page in the `/public` directory.
+### Learning Goals (Boot.dev)
+- **Static Sites**: Learn about what a static site is, and start building the functionality necessary to process and move static HTML and Markdown files.
+- **Nodes**: Build the core HTML generation logic that will power your static site generator. Use recursion and OOP to build an easily understandable and maintainable system.
+- **Inline**: Build the inline markdown parsing logic, and the logic to generate inline HTML elements.
+- **Blocks**: Handle entire blocks of markdown, and generate the HTML nodes that represent them.
+- **Website**: Put the entire static site generator together, and publish your first website.
